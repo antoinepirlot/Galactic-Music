@@ -26,26 +26,20 @@
 package io.github.antoinepirlot.satunes.ui.views.settings
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.TIRAMISU
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import io.github.antoinepirlot.satunes.R
 import io.github.antoinepirlot.satunes.services.Permissions
-import io.github.antoinepirlot.satunes.services.permissionsList
 import io.github.antoinepirlot.satunes.ui.components.settings.Permission
 import io.github.antoinepirlot.satunes.ui.components.texts.Title
 
@@ -53,36 +47,21 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  * @author Antoine Pirlot on 29/04/2024
  */
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun PermissionsSettingsView(
     modifier: Modifier = Modifier,
     isAudioAllowed: MutableState<Boolean>,
 ) {
-    val spacerSize = 16.dp
-    val context: Context = LocalContext.current
     Column(
         modifier = modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp),
     ) {
         Title(text = stringResource(id = R.string.permissions))
-        val lazySate = rememberLazyListState()
-        LazyColumn(
-            state = lazySate,
-        ) {
-            items(
-                items = permissionsList,
-                key = { it.stringId }
-            ) { permission: Permissions ->
-                if (
-                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && permission != Permissions.READ_EXTERNAL_STORAGE_PERMISSION)
-                    || (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU && permission != Permissions.READ_AUDIO_PERMISSION)
-                ) {
-                    Permission(isAudioAllowed = isAudioAllowed, permission = permission)
-                }
-            }
-        }
+        Permission(
+            isAudioAllowed = isAudioAllowed,
+            permission = if (SDK_INT >= TIRAMISU) Permissions.READ_AUDIO_PERMISSION else Permissions.READ_EXTERNAL_STORAGE_PERMISSION
+        )
     }
 }
 

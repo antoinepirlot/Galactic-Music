@@ -47,8 +47,3 @@ internal enum class Permissions(val stringId: Int, val value: String, val icon: 
         icon = SatunesIcons.FOLDER
     ),
 }
-
-internal val permissionsList: List<Permissions> = listOf(
-    Permissions.READ_AUDIO_PERMISSION,
-    Permissions.READ_EXTERNAL_STORAGE_PERMISSION,
-)
