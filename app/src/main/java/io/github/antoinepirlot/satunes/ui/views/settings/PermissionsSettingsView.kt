@@ -59,7 +59,7 @@ fun PermissionsSettingsView(
     ) {
         Title(text = stringResource(id = R.string.permissions))
         Permission(
-            isAudioAllowed = isAudioAllowed,
+            isPermissionAllowed = isAudioAllowed,
             permission = if (SDK_INT >= TIRAMISU) Permissions.READ_AUDIO_PERMISSION else Permissions.READ_EXTERNAL_STORAGE_PERMISSION
         )
     }

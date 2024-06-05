@@ -66,7 +66,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
 @Composable
 internal fun Permission(
     modifier: Modifier = Modifier,
-    isAudioAllowed: MutableState<Boolean>,
+    isPermissionAllowed: MutableState<Boolean>,
     permission: Permissions,
 ) {
     val context: Context = LocalContext.current
@@ -74,15 +74,14 @@ internal fun Permission(
     val permissionState = rememberPermissionState(permission = permission.value)
     if (permissionState.status.isGranted) {
         when (permission) {
-            Permissions.READ_AUDIO_PERMISSION -> PermissionManager.isReadAudioAllowed.value =
-                true
+            Permissions.READ_AUDIO_PERMISSION -> PermissionManager.isReadAudioAllowed.value = true
 
             Permissions.READ_EXTERNAL_STORAGE_PERMISSION -> PermissionManager.isReadExternalStorageAllowed.value =
                 true
-        }
-        isAudioAllowed.value = true
-    }
 
+        }
+        isPermissionAllowed.value = true
+    }
 
     Row(
         modifier = modifier,
@@ -139,7 +138,7 @@ internal fun Permission(
 @Composable
 fun PermissionPreview() {
     Permission(
-        isAudioAllowed = mutableStateOf(false),
+        isPermissionAllowed = mutableStateOf(false),
         permission = Permissions.READ_AUDIO_PERMISSION
     )
 }
