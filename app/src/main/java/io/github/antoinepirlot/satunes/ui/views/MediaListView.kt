@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -51,7 +51,7 @@ import io.github.antoinepirlot.satunes.ui.components.cards.media.MediaCardList
  */
 
 @Composable
-fun MediaListView(
+internal fun MediaListView(
     modifier: Modifier = Modifier,
     mediaList: List<Media>,
     openMedia: (media: Media) -> Unit,
@@ -75,26 +75,26 @@ fun MediaListView(
         },
         floatingActionButtonPosition = FabPosition.End
     ) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding)
-        ) {
-            if (mediaList.isNotEmpty()) {
-                MediaCardList(
-                    mediaList = mediaList,
-                    header = header,
-                    openMedia = openMedia,
-                    openedPlaylistWithMusics = openedPlaylistWithMusics
-                )
-            } else {
-                EmptyView(text = emptyViewText)
-            }
+        if (mediaList.isNotEmpty()) {
+            MediaCardList(
+                modifier = Modifier.padding(innerPadding),
+                mediaList = mediaList,
+                header = header,
+                openMedia = openMedia,
+                openedPlaylistWithMusics = openedPlaylistWithMusics
+            )
+        } else {
+            EmptyView(
+                modifier = Modifier.padding(innerPadding),
+                text = emptyViewText
+            )
         }
     }
 }
 
 @Composable
 @Preview
-fun MediaListViewPreview() {
+private fun MediaListViewPreview() {
     val map = listOf(
         Music(
             1,

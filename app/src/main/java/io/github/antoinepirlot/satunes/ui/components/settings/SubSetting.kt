@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun SubSetting(
+internal fun SubSetting(
     modifier: Modifier = Modifier,
     title: String? = null,
     content: @Composable () -> Unit,
@@ -57,7 +57,7 @@ fun SubSetting(
 
 @Preview
 @Composable
-fun SubSettingPreview() {
+private fun SubSettingPreview() {
     SubSetting(title = "Sub Setting") {
         NormalText(text = "Content")
     }

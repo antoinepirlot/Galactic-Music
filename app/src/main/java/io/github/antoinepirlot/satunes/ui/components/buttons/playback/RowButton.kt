@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.icons.SatunesIcons
  */
 
 @Composable
-fun RowButton(
+internal fun RowButton(
     modifier: Modifier = Modifier,
     icon: SatunesIcons,
     text: String,
@@ -59,6 +59,6 @@ fun RowButton(
 
 @Preview
 @Composable
-fun RowButtonPreview() {
+private fun RowButtonPreview() {
     RowButton(icon = SatunesIcons.PLAYLIST_ADD, text = "Add to Playlist", onClick = {})
 }

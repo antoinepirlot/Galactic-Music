@@ -40,7 +40,7 @@ import io.github.antoinepirlot.satunes.database.R.string.playlists
 /**
  *   @author Antoine Pirlot 06/03/2024
  */
-enum class Settings(val stringId: Int) {
+internal enum class Settings(val stringId: Int) {
     ALBUMS_CHECKED(stringId = albums),
     ARTISTS_CHECKED(stringId = artists),
     AUDIO_OFFLOAD(stringId = audio_offload),
@@ -54,7 +54,7 @@ enum class Settings(val stringId: Int) {
     SHUFFLE_MODE(stringId = shuffle),
 }
 
-val settingsNeedRestart: List<Settings> = listOf(
+internal val settingsNeedRestart: List<Settings> = listOf(
     Settings.AUDIO_OFFLOAD,
     Settings.EXCLUDE_RINGTONES,
     Settings.PAUSE_IF_ANOTHER_PLAYBACK,

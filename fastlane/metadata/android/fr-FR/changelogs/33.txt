@@ -1,0 +1,4 @@
+Cette version règle quelques problèmes:
+
+* La lecture de la musique suivante lorsque il s'agit de la dernière musique (après activation du mode aléatoire) ne fait plus crasher l'application
+* Le chargement des playlists est plus rapide au démarrage de l'application

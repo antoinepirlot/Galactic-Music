@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -54,7 +54,7 @@ import io.github.antoinepirlot.satunes.database.R as RDb
  */
 
 @Composable
-fun PlaylistsSettingsView(
+internal fun PlaylistsSettingsView(
     modifier: Modifier = Modifier,
 ) {
     val scrollState: ScrollState = rememberScrollState()
@@ -88,6 +88,6 @@ fun PlaylistsSettingsView(
 
 @Preview
 @Composable
-fun PlaylistsSettingsViewPreview() {
+private fun PlaylistsSettingsViewPreview() {
     PlaylistsSettingsView()
 }

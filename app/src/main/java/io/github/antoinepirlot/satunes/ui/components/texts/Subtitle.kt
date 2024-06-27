@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.sp
  */
 
 @Composable
-fun Subtitle(
+internal fun Subtitle(
     modifier: Modifier = Modifier,
     text: String,
     maxLines: Int = 1,

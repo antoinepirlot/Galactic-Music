@@ -43,7 +43,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  * @author Antoine Pirlot on 27/05/2024
  */
 @Composable
-fun BatterySettingsView(
+internal fun BatterySettingsView(
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
@@ -62,6 +62,6 @@ fun BatterySettingsView(
 
 @Preview
 @Composable
-fun BatterySettingsViewPreview() {
+private fun BatterySettingsViewPreview() {
     BatterySettingsView()
 }

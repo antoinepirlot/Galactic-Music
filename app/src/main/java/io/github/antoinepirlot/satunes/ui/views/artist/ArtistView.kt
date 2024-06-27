@@ -53,7 +53,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun ArtistView(
+internal fun ArtistView(
     modifier: Modifier = Modifier,
     artist: Artist,
 ) {
@@ -111,6 +111,6 @@ fun ArtistView(
 
 @Preview
 @Composable
-fun ArtistViewPreview() {
+private fun ArtistViewPreview() {
     ArtistView(artist = Artist(id = 0, title = "Artist title", albumSortedMap = sortedMapOf()))
 }

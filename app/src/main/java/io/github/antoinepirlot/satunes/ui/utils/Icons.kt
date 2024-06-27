@@ -39,7 +39,7 @@ import androidx.compose.ui.graphics.Color
  * Get right Icon Button Colors matching system dark mode.
  */
 @Composable
-fun getRightIconColors(isOn: Boolean): IconButtonColors {
+internal fun getRightIconColors(isOn: Boolean): IconButtonColors {
     return IconButtonDefaults.iconButtonColors(
         containerColor =
         if (isOn) {
@@ -58,7 +58,7 @@ fun getRightIconColors(isOn: Boolean): IconButtonColors {
  * Get Right tint color matching system dark mode.
  */
 @Composable
-fun getRightIconTintColor(isOn: Boolean): Color {
+internal fun getRightIconTintColor(isOn: Boolean): Color {
     return if (isOn) {
         if (!isSystemInDarkTheme()) {
             Color.White

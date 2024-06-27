@@ -52,7 +52,7 @@ import io.github.antoinepirlot.satunes.ui.ScreenSizes
  */
 
 @Composable
-fun AlbumArtwork(
+internal fun AlbumArtwork(
     modifier: Modifier = Modifier,
     media: Media,
     onClick: ((album: Album?) -> Unit)? = null,
@@ -62,8 +62,8 @@ fun AlbumArtwork(
     val clickableModifier: Modifier = if (onClick != null) {
         modifier
             .size(
-                if (screenWidthDp >= ScreenSizes.VERY_SMALL && screenWidthDp <= ScreenSizes.SMALL) 150.dp
-                else if (screenWidthDp <= ScreenSizes.VERY_SMALL) 100.dp
+                if (screenWidthDp >= (ScreenSizes.VERY_VERY_SMALL - 1) && screenWidthDp < ScreenSizes.VERY_SMALL) 150.dp
+                else if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) 100.dp
                 else 300.dp // Normal
             )
             .clickable {
@@ -78,8 +78,8 @@ fun AlbumArtwork(
     } else {
         modifier
             .size(
-                if (screenWidthDp >= ScreenSizes.VERY_SMALL && screenWidthDp <= ScreenSizes.SMALL) 150.dp
-                else if (screenWidthDp <= ScreenSizes.VERY_SMALL) 100.dp
+                if (screenWidthDp >= (ScreenSizes.VERY_VERY_SMALL - 1) && screenWidthDp < ScreenSizes.VERY_SMALL) 150.dp
+                else if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) 100.dp
                 else 300.dp // Normal
             )
     }
@@ -105,7 +105,7 @@ fun AlbumArtwork(
 }
 
 @Composable
-fun MusicPlayingAlbumArtwork(
+internal fun MusicPlayingAlbumArtwork(
     modifier: Modifier = Modifier,
     onClick: (album: Album?) -> Unit = { /* Do nothing by default */ }
 ) {
@@ -119,6 +119,6 @@ fun MusicPlayingAlbumArtwork(
 
 @Composable
 @Preview
-fun AlbumArtworkPreview() {
+private fun AlbumArtworkPreview() {
     AlbumArtwork(media = Album(title = ""))
 }

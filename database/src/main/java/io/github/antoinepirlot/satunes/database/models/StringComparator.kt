@@ -30,7 +30,7 @@ import java.text.Normalizer
 /**
  * @author Antoine Pirlot on 24/04/2024
  */
-object StringComparator : Comparator<String> {
+internal object StringComparator : Comparator<String> {
     override fun compare(o1: String, o2: String): Int {
         val o1Normalized: String =
             Normalizer.normalize(o1, Normalizer.Form.NFD)

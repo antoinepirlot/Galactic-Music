@@ -54,7 +54,7 @@ import io.github.antoinepirlot.satunes.database.R as RDb
  * @author Antoine Pirlot on 18/01/24
  */
 
-class MainActivity : ComponentActivity() {
+internal class MainActivity : ComponentActivity() {
 
     companion object {
         internal lateinit var instance: MainActivity

@@ -43,7 +43,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun AndroidAutoSettingsView(
+internal fun AndroidAutoSettingsView(
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
@@ -60,6 +60,6 @@ fun AndroidAutoSettingsView(
 
 @Preview
 @Composable
-fun AndroidAutoSettingsViewPreview() {
+private fun AndroidAutoSettingsViewPreview() {
     AndroidAutoSettingsView()
 }

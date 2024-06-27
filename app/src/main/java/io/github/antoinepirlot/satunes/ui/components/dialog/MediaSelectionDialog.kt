@@ -51,7 +51,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
  */
 
 @Composable
-fun MediaSelectionDialog(
+internal fun MediaSelectionDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
     onConfirm: () -> Unit,
@@ -150,7 +150,7 @@ private fun MediaSelectionDialogListNotEmpty(
 
 @Preview
 @Composable
-fun PlaylistSelectionDialogPreview() {
+private fun PlaylistSelectionDialogPreview() {
     MediaSelectionDialog(
         icon = SatunesIcons.PLAYLIST_ADD,
         onDismissRequest = {},

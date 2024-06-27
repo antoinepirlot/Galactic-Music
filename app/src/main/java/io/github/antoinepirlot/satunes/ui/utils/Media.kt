@@ -53,7 +53,7 @@ import java.util.SortedMap
  * @param mediaToPlay the music to play from the music list
  */
 
-fun startMusic(mediaToPlay: Media? = null) {
+internal fun startMusic(mediaToPlay: Media? = null) {
     val playbackController = PlaybackController.getInstance()
 
     when (mediaToPlay) {

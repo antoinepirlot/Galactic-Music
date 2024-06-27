@@ -57,7 +57,7 @@ import java.util.SortedSet
  */
 
 @Composable
-fun FolderView(
+internal fun FolderView(
     modifier: Modifier = Modifier,
     folder: Folder,
 ) {
@@ -140,6 +140,6 @@ private fun loadSubFolders(
 
 @Preview
 @Composable
-fun FolderViewPreview() {
+private fun FolderViewPreview() {
     FolderView(folder = Folder(id = 0, title = "Folder title"))
 }

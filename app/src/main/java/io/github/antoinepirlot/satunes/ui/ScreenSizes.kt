@@ -29,9 +29,11 @@ package io.github.antoinepirlot.satunes.ui
  * @author Antoine Pirlot on 14/05/2024
  */
 
-interface ScreenSizes {
+internal interface ScreenSizes {
+    // TODO Find a better way to declare sizes (width and height)
     companion object {
-        const val VERY_SMALL = 299 // < 300dp
-        const val SMALL = 369 // < 370dp
+        const val VERY_VERY_SMALL = 300
+        const val VERY_SMALL = 370
+        const val NORMAL = 380
     }
 }

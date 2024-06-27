@@ -30,7 +30,7 @@ import io.github.antoinepirlot.satunes.car.pages.ScreenPages
 /**
  * @author Antoine Pirlot on 17/03/2024
  */
-class RouteDeque {
+internal class RouteDeque {
     private val routeDeque: ArrayDeque<String> = ArrayDeque(initialCapacity = 4)
 
     init {

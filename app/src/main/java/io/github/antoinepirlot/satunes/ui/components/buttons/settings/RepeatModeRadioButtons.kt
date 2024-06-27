@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.settings
+package io.github.antoinepirlot.satunes.ui.components.buttons.settings
 
 import android.content.Context
 import androidx.compose.foundation.background
@@ -61,7 +61,7 @@ import io.github.antoinepirlot.satunes.ui.utils.getRightIconTintColor
  */
 
 @Composable
-fun RepeatModeRadioButtons(
+internal fun RepeatModeRadioButtons(
     modifier: Modifier = Modifier,
 ) {
     val iconsList: List<SatunesIcons> = listOf(
@@ -70,6 +70,14 @@ fun RepeatModeRadioButtons(
         SatunesIcons.REPEAT_ONE // i = 2
     )
     var state: Int by remember { SettingsManager.repeatMode }
+
+    val screenWidthDp: Int = LocalConfiguration.current.screenWidthDp
+    val radioButtonModifier: Modifier =
+        if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL)
+            Modifier.size(15.dp)
+        else if (screenWidthDp < ScreenSizes.NORMAL)
+            Modifier.size(20.dp)
+        else Modifier
 
     Row(
         modifier = modifier
@@ -82,20 +90,14 @@ fun RepeatModeRadioButtons(
         NormalText(text = stringResource(id = R.string.repeat_mode))
         for (i: Int in iconsList.indices) {
             Row(
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 val context: Context = LocalContext.current
                 val onClick: () -> Unit = {
                     state = i
                     SettingsManager.updateRepeatMode(context = context, newValue = i)
                 }
-                val screenWidthDp: Int = LocalConfiguration.current.screenWidthDp
-                val radioButtonModifier: Modifier =
-                    if (screenWidthDp <= ScreenSizes.VERY_SMALL)
-                        Modifier.size(25.dp)
-                    else if (screenWidthDp <= ScreenSizes.SMALL)
-                        Modifier.size(30.dp)
-                    else Modifier
 
                 RadioButton(
                     modifier = radioButtonModifier,

@@ -30,7 +30,7 @@ import io.github.antoinepirlot.satunes.database.models.Album
 /**
  * @author Antoine Pirlot on 13/04/2024
  */
-class DuplicatedAlbumException(
+internal class DuplicatedAlbumException(
     //The already existing album
     val existingAlbum: Album
 ) : Exception()

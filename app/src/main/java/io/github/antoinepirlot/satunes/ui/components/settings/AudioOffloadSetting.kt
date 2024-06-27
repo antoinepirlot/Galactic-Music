@@ -45,7 +45,7 @@ import io.github.antoinepirlot.satunes.ui.views.settings.Settings
  */
 
 @Composable
-fun AudioOffloadSetting(
+internal fun AudioOffloadSetting(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -80,6 +80,6 @@ fun AudioOffloadSetting(
 
 @Preview
 @Composable
-fun AudioOffloadSettingPreview() {
+private fun AudioOffloadSettingPreview() {
     AudioOffloadSetting()
 }

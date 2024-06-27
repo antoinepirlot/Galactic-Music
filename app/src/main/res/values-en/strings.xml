@@ -53,4 +53,7 @@
     <string name="battery_settings">Battery</string>
     <string name="audio_offload_info">This parameter allows you to send audio treatment to a dedicated process.\nThis reduces energy consumption.\n\nHowever, in the Media 3 library used in Satunes, this can cause compatibility issues which results in audio cuts. A known issue is that the music is stopping during playback or after the end of a song.\n\nBy activating this parameter, you reduce energy consumption and increase the  battery life but you are likely to meet audio cuts.\n\nI hope that in a nearby future, the problem will be resolved by Google which holds the Media3 and Exoplayer libraries. In the meantime, I try to find viable solutions to reduce energy consumption by Satunes.</string>
     <string name="restart_required">Restart required</string>
+    <string name="add_to_queue">Add to queue</string>
+    <string name="play_next">Play next</string>
+    <string name="playback_queue">Queue</string>
 </resources>

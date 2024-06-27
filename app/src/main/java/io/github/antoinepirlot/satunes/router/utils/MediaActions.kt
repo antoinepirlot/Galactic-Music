@@ -53,7 +53,7 @@ import io.github.antoinepirlot.satunes.ui.utils.startMusic
  *
  * @param media the media to open
  */
-fun openMedia(
+internal fun openMedia(
     media: Media? = null
 ) {
     if (media == null || media is Music) {
@@ -68,7 +68,7 @@ fun openMedia(
  *
  *      Folder: navigate to the folder's view
  */
-fun openMediaFromFolder(
+internal fun openMediaFromFolder(
     media: Media
 ) {
     when (media) {
@@ -115,7 +115,7 @@ private fun getDestinationOf(media: Media?): String {
  *
  * @throws IllegalStateException if there's no music playing
  */
-fun openCurrentMusic() {
+internal fun openCurrentMusic() {
     val playbackController: PlaybackController = PlaybackController.getInstance()
     val musicPlaying = playbackController.musicPlaying.value
         ?: throw IllegalStateException("No music is currently playing, this button can be accessible")

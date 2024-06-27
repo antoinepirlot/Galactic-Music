@@ -1,4 +1,0 @@
-Satunes has launched and is v1.0.0!
-
-In this release, you can find basic features of an mp3 player plus Android Auto support.
-New features will be added later.

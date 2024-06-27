@@ -53,7 +53,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun RootFolderView(
+internal fun RootFolderView(
     modifier: Modifier = Modifier,
 ) {
     val playbackController: PlaybackController = PlaybackController.getInstance()
@@ -108,6 +108,6 @@ private fun getFolderMusicsMap(folderMap: SortedMap<Folder, Folder>): SortedMap<
 
 @Preview
 @Composable
-fun RootFolderViewPreview() {
+private fun RootFolderViewPreview() {
     RootFolderView()
 }

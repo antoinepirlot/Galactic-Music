@@ -1,6 +1,0 @@
-v1.0.2
-
-This version brings some improvements:
-
-* Settings navigation works consistently for all menus.
-* Design improvement

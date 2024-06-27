@@ -32,15 +32,18 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.core.content.ContextCompat
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
+import io.github.antoinepirlot.satunes.database.models.Media
 import io.github.antoinepirlot.satunes.database.models.Music
 import io.github.antoinepirlot.satunes.database.services.DataLoader
 import io.github.antoinepirlot.satunes.database.services.DataManager
 import io.github.antoinepirlot.satunes.database.services.settings.SettingsManager
+import io.github.antoinepirlot.satunes.playback.exceptions.AlreadyInPlaybackException
 import io.github.antoinepirlot.satunes.playback.models.Playlist
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,22 +61,21 @@ class PlaybackController private constructor(
 ) {
     internal lateinit var mediaController: MediaController
 
-    var playlist: Playlist
-        internal set
+    internal var playlist: Playlist
 
     internal var musicPlayingIndex: Int = DEFAULT_MUSIC_PLAYING_INDEX
     var isEnded: Boolean = DEFAULT_IS_ENDED
 
     // Mutable var are used in ui, it needs to be recomposed
     // I use mutable to avoid using function with multiples params like to add listener
-    var musicPlaying: MutableState<Music?> = mutableStateOf(DEFAULT_MUSIC_PLAYING)
-    var isPlaying: MutableState<Boolean> = mutableStateOf(DEFAULT_IS_PLAYING_VALUE)
-    var repeatMode: MutableState<Int> = mutableIntStateOf(DEFAULT_REPEAT_MODE)
+    val musicPlaying: MutableState<Music?> = mutableStateOf(DEFAULT_MUSIC_PLAYING)
+    val isPlaying: MutableState<Boolean> = mutableStateOf(DEFAULT_IS_PLAYING_VALUE)
+    val repeatMode: MutableState<Int> = mutableIntStateOf(DEFAULT_REPEAT_MODE)
     val isShuffle: MutableState<Boolean> = mutableStateOf(DEFAULT_IS_SHUFFLE)
-    var hasNext: MutableState<Boolean> = mutableStateOf(DEFAULT_HAS_NEXT)
-    var hasPrevious: MutableState<Boolean> = mutableStateOf(DEFAULT_HAS_PREVIOUS)
-    var isLoaded: MutableState<Boolean> = mutableStateOf(DEFAULT_IS_LOADED)
-    var currentPositionProgression: MutableFloatState =
+    val hasNext: MutableState<Boolean> = mutableStateOf(DEFAULT_HAS_NEXT)
+    val hasPrevious: MutableState<Boolean> = mutableStateOf(DEFAULT_HAS_PREVIOUS)
+    val isLoaded: MutableState<Boolean> = mutableStateOf(DEFAULT_IS_LOADED)
+    val currentPositionProgression: MutableFloatState =
         mutableFloatStateOf(DEFAULT_CURRENT_POSITION_PROGRESSION)
 
     private var listener: Player.Listener = PlaybackListener()
@@ -302,6 +304,74 @@ class PlaybackController private constructor(
         this.isShuffle.value = shuffleMode
     }
 
+    fun addToQueue(mediaList: Collection<Media>) {
+        CoroutineScope(Dispatchers.Main).launch {
+            mediaList.forEach { media: Media ->
+                addToQueue(media = media)
+            }
+        }
+    }
+
+    fun addToQueue(media: Media) {
+        when (media) {
+            is Music -> {
+                try {
+                    this.playlist.addToQueue(music = media)
+                    this.mediaController.addMediaItem(media.mediaItem)
+                } catch (e: AlreadyInPlaybackException) {
+                    return
+                }
+                hasNext.value = true
+            }
+
+            else -> addToQueue(mediaList = media.musicMediaItemSortedMap.keys)
+        }
+    }
+
+    private fun addNext(mediaList: Collection<Media>) {
+        CoroutineScope(Dispatchers.Main).launch {
+            mediaList.forEach { media: Media ->
+                addNext(media = media)
+            }
+        }
+    }
+
+    fun addNext(media: Media) {
+        when (media) {
+            is Music -> {
+                try {
+                    this.playlist.addNext(index = this.musicPlayingIndex + 1, music = media)
+                    this.mediaController.addMediaItem(this.musicPlayingIndex + 1, media.mediaItem)
+                } catch (e: AlreadyInPlaybackException) {
+                    this.moveMusic(music = media, newIndex = this.musicPlayingIndex + 1)
+                }
+                hasNext.value = true
+            }
+
+            else -> addNext(mediaList = media.musicMediaItemSortedMap.keys)
+        }
+    }
+
+    private fun moveMusic(music: Music, newIndex: Int) {
+        val musicToMoveIndex: Int = this.playlist.getMusicIndex(music = music)
+        if (musicToMoveIndex == -1) {
+            throw IllegalArgumentException("This music is not inside the playlist")
+        }
+
+        if (musicToMoveIndex < this.musicPlayingIndex) {
+            this.playlist.moveMusic(
+                music = music,
+                oldIndex = musicToMoveIndex,
+                newIndex = newIndex - 1
+            )
+            this.mediaController.moveMediaItem(musicToMoveIndex, newIndex)
+            this.musicPlayingIndex -= 1
+        } else {
+            this.playlist.moveMusic(music = music, oldIndex = musicToMoveIndex, newIndex = newIndex)
+            this.mediaController.moveMediaItem(musicToMoveIndex, newIndex)
+        }
+    }
+
     /**
      * Switch the shuffle mode.
      * If there's more than one music in the playlist, then:
@@ -343,11 +413,11 @@ class PlaybackController private constructor(
         )
 
         val fromIndex: Int = DEFAULT_MUSIC_PLAYING_INDEX + 1
-        val toIndex: Int = this.playlist.musicCount() - 1
+        val toIndex: Int = this.playlist.lastIndex()
 
         this.mediaController.replaceMediaItems(
             fromIndex,
-            toIndex,
+            toIndex + 1, // +1 as it is a toIndex excluded
             this.playlist.getMediaItems(fromIndex = fromIndex, toIndex = toIndex)
         )
 
@@ -462,5 +532,9 @@ class PlaybackController private constructor(
         if (this::mediaController.isInitialized) {
             this.mediaController.release()
         }
+    }
+
+    fun getPlaylist(): SnapshotStateList<Music> {
+        return this.playlist.musicList
     }
 }

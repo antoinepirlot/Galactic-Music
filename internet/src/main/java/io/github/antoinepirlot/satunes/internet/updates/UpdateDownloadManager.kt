@@ -111,7 +111,7 @@ object UpdateDownloadManager {
 
     /**
      * Get the download url for the latest version. It looks like:
-     * "https://github.com/antoinepirlot/MP3-Player/releases/download/vx.y.z-beta/[app name]_vx.y.z[-versionType].apk"
+     * "https://github.com/antoinepirlot/Satunes/releases/download/vx.y.z-beta/[app name]_vx.y.z[-versionType].apk"
      *
      * @return the download url or null if not found
      */

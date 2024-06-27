@@ -68,17 +68,15 @@ class DatabaseManager(context: Context) {
         val importingPlaylist: MutableState<Boolean> = mutableStateOf(false)
     }
 
-    fun loadAllPlaylistsWithMusic() {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val playlistsWithMusicsList: List<PlaylistWithMusics> =
-                    playlistDao.getPlaylistsWithMusics()
-                playlistsWithMusicsList.forEach { playlistWithMusics: PlaylistWithMusics ->
-                    DataManager.addPlaylist(playlistWithMusics = playlistWithMusics)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
+    internal fun loadAllPlaylistsWithMusic() {
+        try {
+            val playlistsWithMusicsList: List<PlaylistWithMusics> =
+                playlistDao.getPlaylistsWithMusics()
+            playlistsWithMusicsList.forEach { playlistWithMusics: PlaylistWithMusics ->
+                DataManager.addPlaylist(playlistWithMusics = playlistWithMusics)
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

@@ -57,7 +57,7 @@ import io.github.antoinepirlot.satunes.ui.utils.openUrl
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ImageWithLink(
+internal fun ImageWithLink(
     modifier: Modifier = Modifier,
     url: String,
     painterId: Int,
@@ -67,7 +67,7 @@ fun ImageWithLink(
     val context: Context = LocalContext.current
     val screenWidthDp: Int = LocalConfiguration.current.screenWidthDp
     Box(modifier = modifier) {
-        val imageSize: Dp = if (screenWidthDp <= ScreenSizes.VERY_SMALL)
+        val imageSize: Dp = if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL)
             40.dp
         else
             60.dp
@@ -94,7 +94,7 @@ fun ImageWithLink(
 
 @Preview
 @Composable
-fun ImageWithLinkPreview() {
+private fun ImageWithLinkPreview() {
     ImageWithLink(
         url = "",
         painterId = R.drawable.tipeee_logo

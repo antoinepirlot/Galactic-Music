@@ -54,7 +54,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
 private val SPACER_SIZE = 10.dp
 
 @Composable
-fun UpdateAvailable(
+internal fun UpdateAvailable(
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -78,6 +78,6 @@ fun UpdateAvailable(
 
 @Preview
 @Composable
-fun UpdateAvailablePreview() {
+private fun UpdateAvailablePreview() {
     UpdateAvailable()
 }

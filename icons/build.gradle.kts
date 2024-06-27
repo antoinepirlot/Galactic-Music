@@ -22,6 +22,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        create("releaseTest") {
+            initWith(getByName("release"))
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -37,7 +40,7 @@ dependencies {
     /**
      * Icons
      */
-    val materialIconsVersion = "1.6.7"
+    val materialIconsVersion = "1.6.8"
     implementation("androidx.compose.material:material-icons-core:$materialIconsVersion")
     implementation("androidx.compose.material:material-icons-extended:$materialIconsVersion")
 

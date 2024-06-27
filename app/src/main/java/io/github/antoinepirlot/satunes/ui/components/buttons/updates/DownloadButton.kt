@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.internet.updates.UpdateDownloadManager
  */
 
 @Composable
-fun DownloadButton(
+internal fun DownloadButton(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -55,6 +55,6 @@ fun DownloadButton(
 
 @Preview
 @Composable
-fun DownloadButtonPreview() {
+private fun DownloadButtonPreview() {
     DownloadButton()
 }

@@ -44,7 +44,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
  */
 
 @Composable
-fun CheckUpdateButton(
+internal fun CheckUpdateButton(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -62,6 +62,6 @@ fun CheckUpdateButton(
 
 @Preview
 @Composable
-fun CheckUpdateButtonPreview() {
+private fun CheckUpdateButtonPreview() {
     CheckUpdateButton()
 }

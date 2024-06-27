@@ -8,6 +8,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+debug
 release
+releaseTest
 schemas
 *.log

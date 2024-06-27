@@ -40,7 +40,7 @@ import io.github.antoinepirlot.satunes.ui.ScreenSizes
  */
 
 @Composable
-fun NormalText(
+internal fun NormalText(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.Unspecified,
@@ -52,11 +52,11 @@ fun NormalText(
     Text(
         modifier = modifier,
         text = text,
-        fontSize = if (fontSize != TextUnit.Unspecified && screenWidthDp <= ScreenSizes.VERY_SMALL)
+        fontSize = if (fontSize != TextUnit.Unspecified && screenWidthDp < ScreenSizes.VERY_VERY_SMALL)
             fontSize / 2
-        else if (fontSize == TextUnit.Unspecified && screenWidthDp <= ScreenSizes.VERY_SMALL)
+        else if (fontSize == TextUnit.Unspecified && screenWidthDp < ScreenSizes.VERY_VERY_SMALL)
             10.sp
-        else if (fontSize != TextUnit.Unspecified && screenWidthDp <= ScreenSizes.SMALL)
+        else if (fontSize != TextUnit.Unspecified && screenWidthDp < ScreenSizes.VERY_SMALL)
             fontSize / 1.5
         else fontSize,
         textAlign = textAlign,

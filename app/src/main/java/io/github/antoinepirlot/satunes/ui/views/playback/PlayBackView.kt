@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.views
+package io.github.antoinepirlot.satunes.ui.views.playback
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
@@ -55,7 +55,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Subtitle
  */
 
 @Composable
-fun PlayBackView(
+internal fun PlayBackView(
     modifier: Modifier = Modifier,
     onAlbumClick: (album: Album?) -> Unit,
     onArtistClick: (artist: Artist) -> Unit,
@@ -73,8 +73,8 @@ fun PlayBackView(
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(
-                        if (screenWidthDp <= ScreenSizes.VERY_SMALL) 0.35f
-                        else if (screenWidthDp <= ScreenSizes.SMALL) 0.4f
+                        if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) 0.35f
+                        else if (screenWidthDp < ScreenSizes.VERY_SMALL) 0.4f
                         else 0.55f
                     ),
                 verticalArrangement = Arrangement.Center,
@@ -102,6 +102,6 @@ fun PlayBackView(
 @SuppressLint("UnrememberedMutableState")
 @Composable
 @Preview
-fun PlayBackViewPreview() {
+private fun PlayBackViewPreview() {
     PlayBackView(onAlbumClick = {}, onArtistClick = {})
 }

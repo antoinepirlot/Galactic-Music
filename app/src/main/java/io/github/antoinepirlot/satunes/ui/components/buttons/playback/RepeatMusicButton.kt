@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -43,7 +43,7 @@ import io.github.antoinepirlot.satunes.ui.utils.getRightIconTintColor
  */
 
 @Composable
-fun RepeatMusicButton(
+internal fun RepeatMusicButton(
     modifier: Modifier = Modifier
 ) {
     val repeatMode: Int by rememberSaveable { PlaybackController.getInstance().repeatMode }
@@ -66,7 +66,7 @@ fun RepeatMusicButton(
 
 @Composable
 @Preview
-fun RepeatMusicButtonPreview() {
+private fun RepeatMusicButtonPreview() {
     RepeatMusicButton()
 }
 

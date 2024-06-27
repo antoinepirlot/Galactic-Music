@@ -42,7 +42,7 @@ import io.github.antoinepirlot.satunes.ui.components.LoadingCircle
  */
 
 @Composable
-fun LoadingView(
+internal fun LoadingView(
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -60,6 +60,6 @@ fun LoadingView(
 
 @Preview
 @Composable
-fun LoadingViewPreview() {
+private fun LoadingViewPreview() {
     LoadingView()
 }

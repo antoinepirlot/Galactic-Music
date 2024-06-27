@@ -52,7 +52,7 @@ import java.util.SortedMap
 /**
  * @author Antoine Pirlot on 16/03/2024
  */
-object SatunesCarCallBack : MediaSessionCompat.Callback() {
+internal object SatunesCarCallBack : MediaSessionCompat.Callback() {
     internal const val ACTIONS_ON_PLAY: Long =
         ACTION_PAUSE or ACTION_SKIP_TO_NEXT or ACTION_SKIP_TO_PREVIOUS or ACTION_SEEK_TO
     internal const val ACTIONS_ON_PAUSE: Long =

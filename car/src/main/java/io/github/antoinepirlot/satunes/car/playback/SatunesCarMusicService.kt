@@ -48,7 +48,7 @@ import io.github.antoinepirlot.satunes.icons.R as RIcons
 /**
  * @author Antoine Pirlot on 16/03/2024
  */
-class SatunesCarMusicService : MediaBrowserServiceCompat() {
+internal class SatunesCarMusicService : MediaBrowserServiceCompat() {
 
     private lateinit var playbackController: PlaybackController
 

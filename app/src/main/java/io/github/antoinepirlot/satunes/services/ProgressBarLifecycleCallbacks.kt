@@ -37,7 +37,7 @@ import kotlinx.coroutines.launch
 /**
  * @author Antoine Pirlot on 02/05/2024
  */
-object ProgressBarLifecycleCallbacks: DefaultLifecycleObserver {
+internal object ProgressBarLifecycleCallbacks : DefaultLifecycleObserver {
     var isUpdatingPosition: Boolean = false
     private var stopRefresh: Boolean = false
 

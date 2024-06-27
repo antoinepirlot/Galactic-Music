@@ -23,51 +23,46 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.dialog.music
+package io.github.antoinepirlot.satunes.ui.components.dialog.media.options
 
-import android.content.Context
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import io.github.antoinepirlot.satunes.R
-import io.github.antoinepirlot.satunes.database.models.Music
-import io.github.antoinepirlot.satunes.database.models.relations.PlaylistWithMusics
-import io.github.antoinepirlot.satunes.database.services.DatabaseManager
+import io.github.antoinepirlot.satunes.database.models.Album
+import io.github.antoinepirlot.satunes.database.models.Media
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
-import io.github.antoinepirlot.satunes.ui.components.dialog.DialogOption
+import io.github.antoinepirlot.satunes.playback.services.PlaybackController
+import io.github.antoinepirlot.satunes.ui.components.dialog.options.DialogOption
 
 /**
- * @author Antoine Pirlot on 01/06/2024
+ * @author Antoine Pirlot on 25/06/2024
  */
 
 @Composable
-fun RemoveFromPlaylistMusicOption(
+internal fun AddToQueueDialogOption(
     modifier: Modifier = Modifier,
-    music: Music,
-    playlistWithMusics: PlaylistWithMusics,
+    media: Media,
     onFinished: () -> Unit,
 ) {
-    val context: Context = LocalContext.current
-
     DialogOption(
         modifier = modifier,
         onClick = {
-            val db = DatabaseManager(context = context)
-            db.removeMusicFromPlaylist(
-                music = music,
-                playlist = playlistWithMusics
-            )
+            PlaybackController.getInstance().addToQueue(media = media)
             onFinished()
         },
         icon = {
-            val playlistRemoveIcon: SatunesIcons = SatunesIcons.PLAYLIST_REMOVE
-            Icon(
-                imageVector = playlistRemoveIcon.imageVector,
-                contentDescription = playlistRemoveIcon.description
-            )
+            val icon: SatunesIcons = SatunesIcons.ADD_TO_PLAYBACK_QUEUE
+            Icon(imageVector = icon.imageVector, contentDescription = icon.description)
         },
-        text = stringResource(id = R.string.remove_from_playlist)
+        text = stringResource(id = R.string.add_to_queue)
     )
+}
+
+@Preview
+@Composable
+private fun AddToQueueDialogOptionPreview() {
+    AddToQueueDialogOption(media = Album(title = "Album"), onFinished = {})
 }

@@ -53,7 +53,7 @@ internal lateinit var navController: NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Satunes(
+internal fun Satunes(
     modifier: Modifier = Modifier,
 ) {
     SatunesTheme {
@@ -78,6 +78,6 @@ fun Satunes(
 
 @Preview
 @Composable
-fun ApplicationPreview() {
+private fun ApplicationPreview() {
     Satunes()
 }

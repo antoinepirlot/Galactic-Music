@@ -40,7 +40,7 @@ import io.github.antoinepirlot.satunes.playback.services.PlaybackController
  */
 
 @Composable
-fun PlayPauseMusicButton(
+internal fun PlayPauseMusicButton(
     modifier: Modifier = Modifier
 ) {
     val playbackController: PlaybackController = PlaybackController.getInstance()
@@ -71,6 +71,6 @@ private fun getPlayPauseIconWithDescription(isPlaying: Boolean): SatunesIcons {
 
 @Preview
 @Composable
-fun PlayPauseMusicButtonPreview() {
+private fun PlayPauseMusicButtonPreview() {
     PlayPauseMusicButton()
 }

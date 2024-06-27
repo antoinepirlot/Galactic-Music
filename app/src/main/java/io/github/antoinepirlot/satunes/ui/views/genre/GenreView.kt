@@ -55,7 +55,7 @@ import java.util.SortedSet
  */
 
 @Composable
-fun GenreView(
+internal fun GenreView(
     modifier: Modifier = Modifier,
     genre: Genre,
 ) {
@@ -117,7 +117,7 @@ fun GenreView(
 
 @Preview
 @Composable
-fun GenreViewPreview() {
+private fun GenreViewPreview() {
     GenreView(genre = Genre(id = 0, "Genre"))
 }
 

@@ -50,7 +50,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun AllArtistsListView(
+internal fun AllArtistsListView(
     modifier: Modifier = Modifier,
 ) {
     val playbackController: PlaybackController = PlaybackController.getInstance()
@@ -90,6 +90,6 @@ fun AllArtistsListView(
 
 @Preview
 @Composable
-fun AllArtistsListViewPreview() {
+private fun AllArtistsListViewPreview() {
     AllArtistsListView()
 }

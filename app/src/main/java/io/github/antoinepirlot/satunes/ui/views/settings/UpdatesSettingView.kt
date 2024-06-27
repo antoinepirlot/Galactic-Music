@@ -59,7 +59,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun UpdatesSettingView(
+internal fun UpdatesSettingView(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -88,6 +88,6 @@ fun UpdatesSettingView(
 
 @Preview
 @Composable
-fun VersionViewPreview() {
+private fun VersionViewPreview() {
     UpdatesSettingView()
 }

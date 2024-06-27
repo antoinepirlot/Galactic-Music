@@ -53,7 +53,7 @@ import io.github.antoinepirlot.satunes.ui.utils.getRightIconAndDescription
  */
 
 @Composable
-fun SatunesBottomAppBar(
+internal fun SatunesBottomAppBar(
     modifier: Modifier = Modifier,
 ) {
     val menuTitleLists: MutableList<MenuTitle> = mutableListOf(
@@ -73,7 +73,7 @@ fun SatunesBottomAppBar(
 
     val selectedMenuTitle: MutableState<MenuTitle> = remember {
         mutableStateOf(
-        // Update the tab by default if settings has changed
+            // Update the tab by default if settings has changed
             if (SettingsManager.foldersChecked.value) MenuTitle.FOLDERS
             else if (SettingsManager.artistsChecked.value) MenuTitle.ARTISTS
             else if (SettingsManager.albumsChecked.value) MenuTitle.ALBUMS
@@ -82,23 +82,20 @@ fun SatunesBottomAppBar(
             else MenuTitle.MUSICS
         )
     }
-    val hasMaxFiveItems: Boolean = menuTitleLists.size <= 5
 
     val screenWidthDp = LocalConfiguration.current.screenWidthDp
     val navigationModifier: Modifier =
-        if (screenWidthDp <= ScreenSizes.VERY_SMALL) modifier.fillMaxHeight(0.11f) else modifier
+        if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) modifier.fillMaxHeight(0.11f) else modifier
     NavigationBar(
         modifier = navigationModifier,
     ) {
         val navigationItemModifier: Modifier =
-            if (screenWidthDp <= ScreenSizes.VERY_SMALL) Modifier.size(16.dp) else Modifier
+            if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) Modifier.size(16.dp) else Modifier
         menuTitleLists.forEach { menuTitle: MenuTitle ->
             NavigationBarItem(
                 modifier = navigationItemModifier,
                 label = {
-                    if (hasMaxFiveItems) {
-                        NormalText(text = stringResource(id = menuTitle.stringId))
-                    }
+                    NormalText(text = stringResource(id = menuTitle.stringId))
                 },
                 selected = selectedMenuTitle.value == menuTitle,
                 onClick = {
@@ -132,7 +129,6 @@ fun SatunesBottomAppBar(
  * For example, if the user click on Album button and he is in settings, then it redirects to albums.
  *
  * @param rootRoute the root route to go
- * @param navController this nav controller is redirected to the media route
  */
 private fun backToRoot(
     rootRoute: String,
@@ -152,6 +148,6 @@ private fun backToRoot(
 @SuppressLint("UnrememberedMutableState")
 @Preview
 @Composable
-fun SatunesBottomAppBarPreview() {
+private fun SatunesBottomAppBarPreview() {
     SatunesBottomAppBar()
 }

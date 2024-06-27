@@ -42,7 +42,7 @@ import io.github.antoinepirlot.satunes.ui.utils.openUrl
  */
 
 @Composable
-fun SeeDetailsButton(
+internal fun SeeDetailsButton(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -61,6 +61,6 @@ fun SeeDetailsButton(
 
 @Preview
 @Composable
-fun SeeDetailsButtonPreview() {
+private fun SeeDetailsButtonPreview() {
     SeeDetailsButton()
 }

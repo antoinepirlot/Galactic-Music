@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -42,12 +42,12 @@ import io.github.antoinepirlot.satunes.ui.ScreenSizes
  */
 
 @Composable
-fun ShowCurrentMusicButton(
+internal fun ShowCurrentMusicButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
     val screenWidthDp: Int = LocalConfiguration.current.screenWidthDp
-    val buttonSize: Dp = if (screenWidthDp <= ScreenSizes.VERY_SMALL)
+    val buttonSize: Dp = if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL)
         80.dp
     else
         100.dp
@@ -65,6 +65,6 @@ fun ShowCurrentMusicButton(
 
 @Composable
 @Preview
-fun ShowCurrentMusicPreview() {
+private fun ShowCurrentMusicPreview() {
     ShowCurrentMusicButton(onClick = {})
 }

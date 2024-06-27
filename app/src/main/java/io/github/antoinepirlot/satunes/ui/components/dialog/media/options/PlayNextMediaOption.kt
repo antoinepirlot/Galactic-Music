@@ -23,49 +23,46 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.dialog.music
+package io.github.antoinepirlot.satunes.ui.components.dialog.media.options
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import io.github.antoinepirlot.satunes.R
 import io.github.antoinepirlot.satunes.database.models.Album
-import io.github.antoinepirlot.satunes.database.models.Artist
-import io.github.antoinepirlot.satunes.database.models.Folder
-import io.github.antoinepirlot.satunes.database.models.Genre
 import io.github.antoinepirlot.satunes.database.models.Media
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
-import io.github.antoinepirlot.satunes.router.utils.openMedia
-import io.github.antoinepirlot.satunes.ui.components.dialog.DialogOption
+import io.github.antoinepirlot.satunes.playback.services.PlaybackController
+import io.github.antoinepirlot.satunes.ui.components.dialog.options.DialogOption
 
 /**
- * @author Antoine Pirlot on 01/06/2024
+ * @author Antoine Pirlot on 25/06/2024
  */
 
 @Composable
-fun NavigateToMediaMusicOption(
+fun PlayNextMediaOption(
     modifier: Modifier = Modifier,
     media: Media,
+    onFinished: () -> Unit,
 ) {
     DialogOption(
         modifier = modifier,
-        onClick = { openMedia(media = media) },
+        onClick = {
+            PlaybackController.getInstance().addNext(media = media)
+            onFinished()
+        },
         icon = {
-            val icon: SatunesIcons = when (media) {
-                is Album -> SatunesIcons.ALBUM
-                is Artist -> SatunesIcons.ARTIST
-                is Genre -> SatunesIcons.GENRES
-                is Folder -> SatunesIcons.FOLDER
-                else -> throw IllegalArgumentException("${media.javaClass} is not allowed")
-            }
+            val icon: SatunesIcons = SatunesIcons.PLAY_NEXT
             Icon(imageVector = icon.imageVector, contentDescription = icon.description)
         },
-        text = media.title
+        text = stringResource(id = R.string.play_next)
     )
 }
 
 @Preview
 @Composable
-fun NavigateToMediaMusicOptionPreview() {
-    NavigateToMediaMusicOption(media = Album(title = "Album Title"))
+private fun PlayNextMediaOptionPreview() {
+    PlayNextMediaOption(media = Album(title = "Album Title"), onFinished = {})
 }

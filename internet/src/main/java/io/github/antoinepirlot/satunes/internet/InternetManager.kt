@@ -35,6 +35,7 @@ import android.net.NetworkCapabilities
  * @author Antoine Pirlot on 11/04/2024
  */
 internal class InternetManager(context: Context) : Application() {
+    //TODO fix for Android Lollipop
     private val connectivityManager: ConnectivityManager =
         context.getSystemService(ConnectivityManager::class.java)
 

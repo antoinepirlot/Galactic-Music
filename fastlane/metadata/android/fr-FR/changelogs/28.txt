@@ -1,9 +1,0 @@
-v1.0.1
-
-Cette versions apporte quelques améliorations:
-
-* Les icones dans la vue de la musique en cours de lecture n'est plus totalement blanc ni totalement
-  noir lorsque désactivé.
-* Harmonisation des icones dans les paramètre en les rendant rond.
-* Ajout d'une marge horizontale dans la vue du paramètre Android Auto
-* Problème résolu pour le téléchargement d'une mise à jour stable

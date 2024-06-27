@@ -46,7 +46,7 @@ import io.github.antoinepirlot.satunes.database.models.relations.PlaylistWithMus
 /**
  * Build a media item
  */
-fun buildMediaItem(
+internal fun buildMediaItem(
     id: String,
     description: String,
     title: String,
@@ -74,7 +74,7 @@ fun buildMediaItem(
 /**
  * Build a media item
  */
-fun buildMediaItem(media: Media): MediaBrowserCompat.MediaItem {
+internal fun buildMediaItem(media: Media): MediaBrowserCompat.MediaItem {
     val flags: Int =
         if (media is Music) {
             MediaBrowserCompat.MediaItem.FLAG_PLAYABLE

@@ -31,7 +31,7 @@ import io.github.antoinepirlot.satunes.database.R
  * @author Antoine Pirlot on 16/03/2024
  */
 
-enum class ScreenPages(
+internal enum class ScreenPages(
     val id: String,
     val description: String,
     val titleId: Int? = null,

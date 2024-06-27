@@ -38,7 +38,7 @@ import io.github.antoinepirlot.satunes.ui.components.cards.ListItem
  */
 
 @Composable
-fun ClickableListItem(
+internal fun ClickableListItem(
     modifier: Modifier = Modifier,
     text: String,
     onClick: () -> Unit,
@@ -56,6 +56,6 @@ fun ClickableListItem(
 
 @Preview
 @Composable
-fun ClickableListItemPreview() {
+private fun ClickableListItemPreview() {
     ClickableListItem(text = "Hello World!", onClick = {})
 }

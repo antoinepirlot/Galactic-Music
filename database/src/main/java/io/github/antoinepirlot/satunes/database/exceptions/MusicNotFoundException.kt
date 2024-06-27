@@ -28,6 +28,6 @@ package io.github.antoinepirlot.satunes.database.exceptions
 /**
  * @author Antoine Pirlot on 13/04/2024
  */
-class MusicNotFoundException(
+internal class MusicNotFoundException(
     val musicId: Long
 ) : NullPointerException()

@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -44,7 +44,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun BottomNavigationBarSettingsView(
+internal fun BottomNavigationBarSettingsView(
     modifier: Modifier = Modifier,
 ) {
     val checkedMap: Map<Settings, MutableState<Boolean>> = mapOf(
@@ -64,6 +64,6 @@ fun BottomNavigationBarSettingsView(
 
 @Composable
 @Preview
-fun BottomNavigationBarSettingsViewPreview() {
+private fun BottomNavigationBarSettingsViewPreview() {
     BottomNavigationBarSettingsView()
 }

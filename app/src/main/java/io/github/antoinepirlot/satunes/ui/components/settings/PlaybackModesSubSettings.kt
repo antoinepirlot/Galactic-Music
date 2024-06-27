@@ -26,13 +26,12 @@
 package io.github.antoinepirlot.satunes.ui.components.settings
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.antoinepirlot.satunes.R
-import io.github.antoinepirlot.satunes.database.services.settings.SettingsManager
-import io.github.antoinepirlot.satunes.ui.views.settings.Settings
+import io.github.antoinepirlot.satunes.ui.components.buttons.settings.RepeatModeRadioButtons
+import io.github.antoinepirlot.satunes.ui.components.buttons.settings.ShuffleModeRadioButtons
 
 /**
  * @author Antoine Pirlot on 13/05/2024
@@ -40,18 +39,14 @@ import io.github.antoinepirlot.satunes.ui.views.settings.Settings
 
 
 @Composable
-fun PlaybackModesSubSettings(
+internal fun PlaybackModesSubSettings(
     modifier: Modifier = Modifier,
 ) {
-    val checkedMap: Map<Settings, MutableState<Boolean>> = mapOf(
-        Pair(Settings.SHUFFLE_MODE, SettingsManager.shuffleMode)
-    )
-
     SubSetting(
         modifier = modifier,
         title = stringResource(id = R.string.playback_mode_settings)
     ) {
-        SettingsSwitchList(checkedMap = checkedMap)
+        ShuffleModeRadioButtons()
         RepeatModeRadioButtons()
     }
 }

@@ -47,7 +47,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun MediaWithAlbumsHeaderView(
+internal fun MediaWithAlbumsHeaderView(
     modifier: Modifier = Modifier,
     media: Media,
     albumList: List<Album>,

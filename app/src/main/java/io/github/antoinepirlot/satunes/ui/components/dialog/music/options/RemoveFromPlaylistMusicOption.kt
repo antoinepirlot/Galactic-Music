@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.dialog.playlist
+package io.github.antoinepirlot.satunes.ui.components.dialog.music.options
 
 import android.content.Context
 import androidx.compose.material3.Icon
@@ -32,19 +32,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import io.github.antoinepirlot.satunes.R
+import io.github.antoinepirlot.satunes.database.models.Music
 import io.github.antoinepirlot.satunes.database.models.relations.PlaylistWithMusics
 import io.github.antoinepirlot.satunes.database.services.DatabaseManager
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
-import io.github.antoinepirlot.satunes.ui.components.dialog.DialogOption
+import io.github.antoinepirlot.satunes.ui.components.dialog.options.DialogOption
 
 /**
  * @author Antoine Pirlot on 01/06/2024
  */
 
 @Composable
-fun RemovePlaylistOption(
+internal fun RemoveFromPlaylistMusicOption(
     modifier: Modifier = Modifier,
-    playlistToRemove: PlaylistWithMusics,
+    music: Music,
+    playlistWithMusics: PlaylistWithMusics,
     onFinished: () -> Unit,
 ) {
     val context: Context = LocalContext.current
@@ -53,7 +55,10 @@ fun RemovePlaylistOption(
         modifier = modifier,
         onClick = {
             val db = DatabaseManager(context = context)
-            db.removePlaylist(playlistToRemove = playlistToRemove)
+            db.removeMusicFromPlaylist(
+                music = music,
+                playlist = playlistWithMusics
+            )
             onFinished()
         },
         icon = {
@@ -63,6 +68,6 @@ fun RemovePlaylistOption(
                 contentDescription = playlistRemoveIcon.description
             )
         },
-        text = stringResource(id = R.string.remove_playlist)
+        text = stringResource(id = R.string.remove_from_playlist)
     )
 }

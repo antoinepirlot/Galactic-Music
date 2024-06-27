@@ -45,7 +45,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun InformationDialog(
+internal fun InformationDialog(
     modifier: Modifier = Modifier,
     title: String,
     text: String? = null,
@@ -82,7 +82,7 @@ fun InformationDialog(
 
 @Preview
 @Composable
-fun InformationDialogPreview() {
+private fun InformationDialogPreview() {
     InformationDialog(
         title = "Title",
         text = "The text to show on the screen",

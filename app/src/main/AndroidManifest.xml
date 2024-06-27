@@ -12,14 +12,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/satunes_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MP3"
+        android:theme="@style/Theme.Satunes"
         tools:targetApi="TIRAMISU">
 
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance"
             android:exported="true"
-            android:theme="@style/Theme.MP3">
+            android:theme="@style/Theme.Satunes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

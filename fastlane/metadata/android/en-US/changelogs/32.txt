@@ -1,0 +1,13 @@
+v1.1.0
+
+New features:
+
+* Added a new setting to use Audio Offload. This option allows you to optimize the battery
+* Added quick actions on the currently playing screen
+* Navigation to albums, genres, artists, etc. from music
+
+Troubleshooting:
+
+* Display issue in Android Auto
+* Default random mode selection is represented by buttons with icons
+* Displaying navigation bar button names

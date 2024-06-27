@@ -52,7 +52,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
  */
 
 @Composable
-fun MediaSelectionCheckbox(
+internal fun MediaSelectionCheckbox(
     modifier: Modifier = Modifier,
     media: Media
 ) {
@@ -91,7 +91,7 @@ private fun onClick(checked: MutableState<Boolean>, media: Media) {
 
 @Preview
 @Composable
-fun PlaylistSelectionCheckboxPreview() {
+private fun PlaylistSelectionCheckboxPreview() {
     MediaSelectionCheckbox(
         media = PlaylistWithMusics(
             playlist = Playlist(id = 0, title = ""),

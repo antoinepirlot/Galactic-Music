@@ -48,7 +48,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun PermissionsSettingsView(
+internal fun PermissionsSettingsView(
     modifier: Modifier = Modifier,
     isAudioAllowed: MutableState<Boolean>,
 ) {
@@ -68,6 +68,6 @@ fun PermissionsSettingsView(
 @SuppressLint("UnrememberedMutableState")
 @Preview
 @Composable
-fun PermissionsSettingsViewPreview() {
+private fun PermissionsSettingsViewPreview() {
     PermissionsSettingsView(isAudioAllowed = mutableStateOf(false))
 }

@@ -49,7 +49,7 @@ import kotlin.math.floor
  */
 
 @Composable
-fun BarSpeedSetting(
+internal fun BarSpeedSetting(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -85,6 +85,6 @@ fun BarSpeedSetting(
 
 @Preview
 @Composable
-fun BarSpeedSettingPreview() {
+private fun BarSpeedSettingPreview() {
     BarSpeedSetting()
 }

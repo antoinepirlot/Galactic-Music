@@ -37,17 +37,18 @@ import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material.icons.rounded.FileDownload
 import androidx.compose.material.icons.rounded.FileUpload
 import androidx.compose.material.icons.rounded.Folder
+import androidx.compose.material.icons.rounded.GraphicEq
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.PauseCircle
 import androidx.compose.material.icons.rounded.PlayCircle
+import androidx.compose.material.icons.rounded.PlaylistAddCircle
 import androidx.compose.material.icons.rounded.PlaylistRemove
+import androidx.compose.material.icons.rounded.QueuePlayNext
 import androidx.compose.material.icons.rounded.Repeat
-import androidx.compose.material.icons.rounded.RepeatOn
 import androidx.compose.material.icons.rounded.RepeatOne
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Shuffle
-import androidx.compose.material.icons.rounded.ShuffleOn
 import androidx.compose.material.icons.rounded.SkipNext
 import androidx.compose.material.icons.rounded.SkipPrevious
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -57,6 +58,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
  */
 enum class SatunesIcons(val imageVector: ImageVector, val description: String) {
     ADD(imageVector = Icons.Rounded.Add, description = "Add Icon"),
+    ADD_TO_PLAYBACK_QUEUE(
+        imageVector = Icons.Rounded.PlaylistAddCircle,
+        description = "Add to queue Icon"
+    ),
     ALBUM(imageVector = Icons.Rounded.Album, description = "Album Icon"),
     ARTIST(imageVector = Icons.Rounded.AccountCircle, description = "Artist Icon"),
     EXPORT(imageVector = Icons.Rounded.FileUpload, description = "Export Icon"),
@@ -65,6 +70,7 @@ enum class SatunesIcons(val imageVector: ImageVector, val description: String) {
     FOLDER(imageVector = Icons.Rounded.Folder, description = "Folder Icon"),
     GENRES(imageVector = Icons.Rounded.Category, description = "Genre Icon"),
     MUSIC(imageVector = Icons.Rounded.MusicNote, description = "Music Icon"),
+    MUSIC_PLAYING(imageVector = Icons.Rounded.GraphicEq, description = "Music Playing Icon"),
     PAUSE(imageVector = Icons.Rounded.PauseCircle, description = "Pause Icon"),
     PERMISSION_GRANTED(imageVector = Icons.Rounded.Done, description = "Permission Granted Icon"),
     PERMISSION_NOT_GRANTED(
@@ -72,6 +78,7 @@ enum class SatunesIcons(val imageVector: ImageVector, val description: String) {
         description = "Permission Not Granted Icon"
     ),
     PLAY(imageVector = Icons.Rounded.PlayCircle, description = "Play Icon"),
+    PLAY_NEXT(imageVector = Icons.Rounded.QueuePlayNext, description = "Play Next Icon"),
     PLAYLIST(imageVector = Icons.AutoMirrored.Rounded.QueueMusic, description = "Playlist Icon"),
     PLAYLIST_ADD(
         imageVector = Icons.AutoMirrored.Rounded.PlaylistAdd,
@@ -82,11 +89,9 @@ enum class SatunesIcons(val imageVector: ImageVector, val description: String) {
         description = "Playlist Remove Icon"
     ),
     REPEAT(imageVector = Icons.Rounded.Repeat, description = "Repeat Icon"),
-    REPEAT_ON(imageVector = Icons.Rounded.RepeatOn, description = "Repeat On"),
     REPEAT_ONE(imageVector = Icons.Rounded.RepeatOne, description = "Repeat One On Icon"),
     SETTINGS(imageVector = Icons.Rounded.Settings, description = "Settings Icon"),
     SHUFFLE(imageVector = Icons.Rounded.Shuffle, description = "Shuffle Icon"),
-    SHUFFLE_ON(imageVector = Icons.Rounded.ShuffleOn, description = "Shuffle on Icon"),
     SKIP_NEXT(imageVector = Icons.Rounded.SkipNext, description = "Skip Next Icon"),
-    SKIP_PREVIOUS(imageVector = Icons.Rounded.SkipPrevious, description = "Skip Previous Icon"),
+    SKIP_PREVIOUS(imageVector = Icons.Rounded.SkipPrevious, description = "Skip Previous Icon"), ;
 }

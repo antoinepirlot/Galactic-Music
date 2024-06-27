@@ -56,7 +56,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun PlaylistListView(
+internal fun PlaylistListView(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -104,6 +104,6 @@ fun PlaylistListView(
 
 @Preview
 @Composable
-fun PlaylistListViewPreview() {
+private fun PlaylistListViewPreview() {
     PlaylistListView()
 }

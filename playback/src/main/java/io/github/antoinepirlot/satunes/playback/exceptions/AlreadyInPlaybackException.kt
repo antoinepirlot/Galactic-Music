@@ -23,28 +23,9 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.settings
-
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import io.github.antoinepirlot.satunes.R
-import io.github.antoinepirlot.satunes.ui.components.images.ImageWithLink
+package io.github.antoinepirlot.satunes.playback.exceptions
 
 /**
- * @author Antoine Pirlot on 11/04/2024
+ * @author Antoine Pirlot on 25/06/2024
  */
-
-@Composable
-fun Facebook(
-    modifier: Modifier = Modifier
-) {
-    val facebookUrl = "https://www.facebook.com/profile.php?id=61557929940182"
-    ImageWithLink(modifier = modifier, url = facebookUrl, painterId = R.drawable.facebook_logo)
-}
-
-@Preview
-@Composable
-fun FacebookPreview() {
-    Facebook()
-}
+class AlreadyInPlaybackException : Exception()

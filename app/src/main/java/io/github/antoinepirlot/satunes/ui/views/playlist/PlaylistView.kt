@@ -60,7 +60,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun PlaylistView(
+internal fun PlaylistView(
     modifier: Modifier = Modifier,
     playlist: PlaylistWithMusics,
 ) {
@@ -129,7 +129,7 @@ fun PlaylistView(
 
 @Preview
 @Composable
-fun PlaylistViewPreview() {
+private fun PlaylistViewPreview() {
     PlaylistView(
         playlist = PlaylistWithMusics(
             playlist = Playlist(id = 0, title = "Playlist"),

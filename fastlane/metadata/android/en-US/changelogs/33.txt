@@ -1,0 +1,3 @@
+This version fixes issues:
+* When playing the next music when it is already the last one after shuffling.
+* Playlists load faster at starting

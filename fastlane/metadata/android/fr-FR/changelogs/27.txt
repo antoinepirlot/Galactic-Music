@@ -1,4 +1,0 @@
-Satunes est enfin en v1.0.0!
-
-Dans cette version, tu retrouveras les fonctionnalités basiques d'un lecteur mp3 en plus d'un support pour Android Auto.
-De nouvelles fonctionnalités arriveront dans les prochaines versions.

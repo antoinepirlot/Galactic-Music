@@ -1,0 +1,13 @@
+v1.1.0
+
+Nouvelles fonctionnalités:
+
+* Ajout d'un nouveau paramètre permettant d'utiliser l'Audio Offload. Cette option permet d'optimiser la batterie
+* Ajout d'actions rapide sur l'écran en cours de lecture
+* Navigation vers les albums, genres, artistes, etc. depuis une musique
+
+Résolutions de problèmes:
+
+* Problème d'affichage dans Android Auto
+* Séléction du mode aléatoire par défaut est représenté par des boutons avec icônes
+* Affichage du nom des boutons de la barre de navigation

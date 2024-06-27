@@ -36,7 +36,7 @@ import androidx.room.Entity
     tableName = "musics_playlists_rel",
     primaryKeys = ["playlist_id", "music_id"]
 )
-data class MusicsPlaylistsRel(
+internal data class MusicsPlaylistsRel(
     @ColumnInfo(name = "playlist_id") val playlistId: Long,
     @ColumnInfo(name = "music_id") val musicId: Long
 )

@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.ui.ScreenSizes
  */
 
 @Composable
-fun ListItem(
+internal fun ListItem(
     modifier: Modifier = Modifier,
     headlineContent: @Composable () -> Unit,
     overlineContent: @Composable (() -> Unit)? = null,
@@ -56,7 +56,7 @@ fun ListItem(
     val fontScale: Float = LocalConfiguration.current.fontScale
     androidx.compose.material3.ListItem(
         modifier = modifier.height(
-            if (screenWidthDp <= ScreenSizes.VERY_SMALL) {
+            if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) {
                 (fontScale * 40).dp
             } else {
                 (fontScale * 70).dp
@@ -75,6 +75,6 @@ fun ListItem(
 
 @Preview
 @Composable
-fun ListItemPreview() {
+private fun ListItemPreview() {
     ListItem(headlineContent = {})
 }

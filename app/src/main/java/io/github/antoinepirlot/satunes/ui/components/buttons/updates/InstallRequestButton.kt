@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.internet.updates.UpdateDownloadManager
  */
 
 @Composable
-fun InstallRequestButton(
+internal fun InstallRequestButton(
     modifier: Modifier = Modifier,
 ) {
     val context: Context = LocalContext.current
@@ -55,6 +55,6 @@ fun InstallRequestButton(
 
 @Preview
 @Composable
-fun InstallRequestButtonPreview() {
+private fun InstallRequestButtonPreview() {
     InstallRequestButton()
 }

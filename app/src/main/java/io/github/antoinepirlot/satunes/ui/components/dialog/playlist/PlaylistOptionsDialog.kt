@@ -34,6 +34,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import io.github.antoinepirlot.satunes.database.models.relations.PlaylistWithMusics
 import io.github.antoinepirlot.satunes.database.models.tables.Playlist
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
+import io.github.antoinepirlot.satunes.ui.components.dialog.playlist.options.ExportPlaylistOption
+import io.github.antoinepirlot.satunes.ui.components.dialog.playlist.options.RemovePlaylistOption
 import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
 
 /**
@@ -41,7 +43,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
  */
 
 @Composable
-fun PlaylistOptionsDialog(
+internal fun PlaylistOptionsDialog(
     modifier: Modifier = Modifier,
     playlistWithMusics: PlaylistWithMusics,
     onDismissRequest: () -> Unit,
@@ -74,7 +76,7 @@ fun PlaylistOptionsDialog(
 
 @Preview
 @Composable
-fun PlaylistOptionsDialogPreview() {
+private fun PlaylistOptionsDialogPreview() {
     PlaylistOptionsDialog(
         playlistWithMusics = PlaylistWithMusics(Playlist(1, "Playlist Title"), mutableListOf()),
         onDismissRequest = {},

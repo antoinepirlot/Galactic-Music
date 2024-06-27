@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.dialog.music
+package io.github.antoinepirlot.satunes.ui.components.dialog.music.options
 
 import android.content.Context
 import androidx.compose.material3.Icon
@@ -43,8 +43,8 @@ import io.github.antoinepirlot.satunes.database.services.DataManager
 import io.github.antoinepirlot.satunes.database.services.DatabaseManager
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
 import io.github.antoinepirlot.satunes.services.MediaSelectionManager
-import io.github.antoinepirlot.satunes.ui.components.dialog.DialogOption
 import io.github.antoinepirlot.satunes.ui.components.dialog.MediaSelectionDialog
+import io.github.antoinepirlot.satunes.ui.components.dialog.options.DialogOption
 import java.util.SortedMap
 
 /**
@@ -52,7 +52,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun AddToPlaylistOption(
+internal fun AddToPlaylistOption(
     modifier: Modifier = Modifier,
     music: Music,
     onFinished: () -> Unit

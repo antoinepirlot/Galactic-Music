@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -50,7 +50,7 @@ import java.util.SortedSet
  */
 
 @Composable
-fun AllAlbumsListView(
+internal fun AllAlbumsListView(
     modifier: Modifier = Modifier,
 ) {
     val playbackController: PlaybackController = PlaybackController.getInstance()
@@ -92,6 +92,6 @@ fun AllAlbumsListView(
 
 @Preview
 @Composable
-fun AllAlbumsListViewPreview() {
+private fun AllAlbumsListViewPreview() {
     AllAlbumsListView()
 }

@@ -36,7 +36,7 @@ import io.github.antoinepirlot.satunes.ui.components.images.ImageWithLink
  */
 
 @Composable
-fun Tipeee(
+internal fun Tipeee(
     modifier: Modifier = Modifier
 ) {
     val tipeeeUrl = "https://tipeee.com/antoinepirlot"
@@ -45,6 +45,6 @@ fun Tipeee(
 
 @Preview
 @Composable
-fun TipeeePreview() {
+private fun TipeeePreview() {
     Tipeee()
 }

@@ -37,7 +37,7 @@ import io.github.antoinepirlot.satunes.ui.components.images.ImageWithLink
  */
 
 @Composable
-fun GitHub(
+internal fun GitHub(
     modifier: Modifier = Modifier,
 ) {
     val gitHubUrl = "https://github.com/antoinepirlot/Satunes"
@@ -51,6 +51,6 @@ fun GitHub(
 
 @Preview
 @Composable
-fun GitHubPreview() {
+private fun GitHubPreview() {
     GitHub()
 }

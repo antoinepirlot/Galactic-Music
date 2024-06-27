@@ -54,16 +54,16 @@ import io.github.antoinepirlot.satunes.ui.components.buttons.playback.ShuffleMus
  */
 
 @Composable
-fun MusicControlBar(
+internal fun MusicControlBar(
     modifier: Modifier = Modifier,
     horizontalArrangement: Arrangement.HorizontalOrVertical = Arrangement.Center,
     verticalAlignment: Alignment.Vertical = Alignment.CenterVertically
 ) {
     val screenWidthDp = LocalConfiguration.current.screenWidthDp
     val ratio: Float =
-        if (screenWidthDp >= ScreenSizes.VERY_SMALL && screenWidthDp <= ScreenSizes.SMALL) {
+        if (screenWidthDp >= (ScreenSizes.VERY_VERY_SMALL - 1) && screenWidthDp < ScreenSizes.VERY_SMALL) {
             0.8f
-        } else if (screenWidthDp <= ScreenSizes.VERY_SMALL) {
+        } else if (screenWidthDp < ScreenSizes.VERY_VERY_SMALL) {
             0.6f
         } else { // Normal
             1f
@@ -102,6 +102,6 @@ fun MusicControlBar(
 @SuppressLint("UnrememberedMutableState")
 @Composable
 @Preview
-fun MediaControlBarPreview() {
+private fun MediaControlBarPreview() {
     MusicControlBar()
 }

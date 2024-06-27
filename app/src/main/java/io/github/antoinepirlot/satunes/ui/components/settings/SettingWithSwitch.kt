@@ -52,7 +52,7 @@ import io.github.antoinepirlot.satunes.ui.views.settings.settingsNeedRestart
  */
 
 @Composable
-fun SettingWithSwitch(
+internal fun SettingWithSwitch(
     modifier: Modifier = Modifier,
     setting: Settings,
     icon: SatunesIcons? = null,
@@ -109,7 +109,7 @@ fun SettingWithSwitch(
 @SuppressLint("UnrememberedMutableState")
 @Composable
 @Preview
-fun SettingWithSwitchPreview() {
+private fun SettingWithSwitchPreview() {
     SettingWithSwitch(
         setting = Settings.PAUSE_IF_ANOTHER_PLAYBACK,
         checked = true,

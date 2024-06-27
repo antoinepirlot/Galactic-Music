@@ -38,7 +38,7 @@ import io.github.antoinepirlot.satunes.database.models.Media
  */
 
 @Composable
-fun MediaSelectionForm(
+internal fun MediaSelectionForm(
     modifier: Modifier = Modifier,
     mediaList: List<Media>
 ) {
@@ -58,6 +58,6 @@ fun MediaSelectionForm(
 
 @Preview
 @Composable
-fun PlaylistSelectionFormPreview() {
+private fun PlaylistSelectionFormPreview() {
     MediaSelectionForm(mediaList = listOf())
 }

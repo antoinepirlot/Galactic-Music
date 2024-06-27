@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -41,7 +41,7 @@ import io.github.antoinepirlot.satunes.playback.services.PlaybackController
  */
 
 @Composable
-fun PreviousMusicButton(
+internal fun PreviousMusicButton(
     modifier: Modifier = Modifier
 ) {
     IconButton(
@@ -60,6 +60,6 @@ fun PreviousMusicButton(
 @SuppressLint("UnrememberedMutableState")
 @Composable
 @Preview
-fun PreviousMusicButtonPreview() {
+private fun PreviousMusicButtonPreview() {
     PreviousMusicButton()
 }

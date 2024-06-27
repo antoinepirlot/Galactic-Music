@@ -16,6 +16,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildTypes {
+        create("releaseTest") {
+            initWith(getByName("release"))
+        }
+    }
 }
 
 dependencies {

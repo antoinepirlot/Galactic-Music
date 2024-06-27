@@ -37,7 +37,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.antoinepirlot.satunes.R
-import io.github.antoinepirlot.satunes.ui.components.settings.Facebook
 import io.github.antoinepirlot.satunes.ui.components.settings.GitHub
 import io.github.antoinepirlot.satunes.ui.components.settings.Tipeee
 import io.github.antoinepirlot.satunes.ui.components.texts.NormalText
@@ -48,7 +47,7 @@ import io.github.antoinepirlot.satunes.ui.components.texts.Title
  */
 
 @Composable
-fun AboutView(
+internal fun AboutView(
     modifier: Modifier = Modifier
 ) {
     Column(modifier.padding(horizontal = 16.dp)) {
@@ -59,10 +58,9 @@ fun AboutView(
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Tipeee()
-            Facebook()
             GitHub()
         }
     }
@@ -70,6 +68,6 @@ fun AboutView(
 
 @Preview
 @Composable
-fun AboutViewPreview() {
+private fun AboutViewPreview() {
     AboutView()
 }

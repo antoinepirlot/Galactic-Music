@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.dialog.playlist
+package io.github.antoinepirlot.satunes.ui.components.dialog.playlist.options
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -33,14 +33,14 @@ import io.github.antoinepirlot.satunes.MainActivity
 import io.github.antoinepirlot.satunes.R
 import io.github.antoinepirlot.satunes.database.models.relations.PlaylistWithMusics
 import io.github.antoinepirlot.satunes.icons.SatunesIcons
-import io.github.antoinepirlot.satunes.ui.components.dialog.DialogOption
+import io.github.antoinepirlot.satunes.ui.components.dialog.options.DialogOption
 
 /**
  * @author Antoine Pirlot on 01/06/2024
  */
 
 @Composable
-fun ExportPlaylistOption(
+internal fun ExportPlaylistOption(
     modifier: Modifier = Modifier,
     playlistToExport: PlaylistWithMusics
 ) {

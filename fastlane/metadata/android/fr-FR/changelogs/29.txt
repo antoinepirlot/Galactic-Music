@@ -1,6 +1,0 @@
-v1.0.2
-
-Cette version apporte quelques améliorations:
-
-* La navigation dans les paramètres fonctionne de manière uniforme pour tous les menus.
-* Amélioration du design

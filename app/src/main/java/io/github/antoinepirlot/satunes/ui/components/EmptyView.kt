@@ -17,7 +17,7 @@
  * You find this original project on github.
  *
  * My github link is: https://github.com/antoinepirlot
- * This current project's link is: https://github.com/antoinepirlot/MP3-Player
+ * This current project's link is: https://github.com/antoinepirlot/Satunes
  *
  * You can contact me via my email: pirlot.antoine@outlook.com
  * PS: I don't answer quickly.
@@ -40,12 +40,14 @@ import androidx.compose.ui.unit.dp
  */
 
 @Composable
-fun EmptyView(
+internal fun EmptyView(
     modifier: Modifier = Modifier,
     text: String
 ) {
     Box(
-        modifier = modifier.fillMaxSize().padding(16.dp),
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(text = text)
@@ -54,6 +56,6 @@ fun EmptyView(
 
 @Preview
 @Composable
-fun EmptyViewPreview() {
+private fun EmptyViewPreview() {
     EmptyView(text = "No data")
 }

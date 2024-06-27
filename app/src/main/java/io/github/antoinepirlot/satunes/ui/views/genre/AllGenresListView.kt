@@ -52,7 +52,7 @@ import java.util.SortedMap
  */
 
 @Composable
-fun AllGenresListView(
+internal fun AllGenresListView(
     modifier: Modifier = Modifier,
 ) {
     val playbackController: PlaybackController = PlaybackController.getInstance()
@@ -104,6 +104,6 @@ private fun getMusics(genreMap: SortedMap<String, Genre>): SortedMap<Music, Medi
 
 @Preview
 @Composable
-fun AllGenresListViewPreview() {
+private fun AllGenresListViewPreview() {
     AllGenresListView()
 }

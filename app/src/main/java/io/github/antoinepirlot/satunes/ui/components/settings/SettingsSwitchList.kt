@@ -42,7 +42,7 @@ import io.github.antoinepirlot.satunes.ui.views.settings.Settings
  */
 
 @Composable
-fun SettingsSwitchList(
+internal fun SettingsSwitchList(
     modifier: Modifier = Modifier,
     checkedMap: Map<Settings, MutableState<Boolean>>,
 ) {
@@ -70,7 +70,7 @@ fun SettingsSwitchList(
 
 @Composable
 @Preview
-fun SettingsSwitchListPreview() {
+private fun SettingsSwitchListPreview() {
     SettingsSwitchList(checkedMap = mapOf())
 }
 

@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit
  * @author Antoine Pirlot on 23/02/24
  */
 
-fun getMillisToTimeText(milliseconds: Long): String {
+internal fun getMillisToTimeText(milliseconds: Long): String {
     var toReturn = ""
     val hours = TimeUnit.MILLISECONDS.toHours(milliseconds)
     if (hours > 0) {

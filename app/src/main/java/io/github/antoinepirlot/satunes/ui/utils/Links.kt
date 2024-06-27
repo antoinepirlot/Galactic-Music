@@ -28,13 +28,18 @@ package io.github.antoinepirlot.satunes.ui.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.navigation.NavHostController
 
 /**
  * @author Antoine Pirlot on 10/04/2024
  */
 
-fun openUrl(context: Context, url: String) {
+internal fun openUrl(context: Context, url: String) {
     val uri: Uri = Uri.parse(url)
     val intent = Intent(Intent.ACTION_VIEW, uri)
     context.startActivity(intent)
+}
+
+internal fun getCurrentRoute(navController: NavHostController): String? {
+    return navController.currentBackStackEntry!!.destination.route
 }

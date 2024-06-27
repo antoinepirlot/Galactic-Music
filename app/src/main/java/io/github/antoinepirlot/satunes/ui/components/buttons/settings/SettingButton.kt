@@ -23,7 +23,7 @@
  *  PS: I don't answer quickly.
  */
 
-package io.github.antoinepirlot.satunes.ui.components.settings
+package io.github.antoinepirlot.satunes.ui.components.buttons.settings
 
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
@@ -35,7 +35,7 @@ import io.github.antoinepirlot.satunes.ui.components.buttons.ClickableListItem
  * @author Antoine Pirlot on 27/05/2024
  */
 @Composable
-fun SettingButton(
+internal fun SettingButton(
     modifier: Modifier = Modifier,
     text: String,
     onClick: () -> Unit
@@ -50,6 +50,6 @@ fun SettingButton(
 
 @Preview
 @Composable
-fun SettingButtonPreview() {
+private fun SettingButtonPreview() {
     SettingButton(text = "Setting", onClick = {})
 }
